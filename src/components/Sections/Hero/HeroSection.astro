@@ -1,4 +1,12 @@
 ---
+/**
+ * HeroSection.astro - Sección Principal de Entrada (Hero Section)
+ * 
+ * Esta sección es la primera impresión visual que ve el usuario al ingresar al sitio.
+ * Cuenta con un fondo fluido interactivo en canvas (<LiquidEther />), texto principal de gran
+ * impacto visual y botones de llamada a la acción (CTA) para agendar consultorías o iniciar chat.
+ */
+
 import { Button } from "@/components/ui/button.tsx";
 import LiquidEther from "@/components/LiquidEther.tsx";
 import Spline from "@/components/3D/spline.tsx";
@@ -8,13 +16,14 @@ import UnicornScene from "unicornstudio-react";
 <section
   class="relative flex h-screen w-full overflow-hidden bg-negro text-white"
 >
+  <!-- Capa 0: Fondo fluido interactivo de WebGL (LiquidEther) con reacción al movimiento del mouse -->
   <div class="absolute inset-0 z-0">
     <LiquidEther
       client:load
-      mouseForce={43}
+      mouseForce={23}
       cursorSize={140}
       isViscous
-      viscous={75}
+      viscous={44}
       colors={["#4200D1", "#4200D1", "#E17246", "#E17246", "#4200D1"]}
       autoDemo
       autoSpeed={0.5}
@@ -24,18 +33,23 @@ import UnicornScene from "unicornstudio-react";
     />
   </div>
 
+  <!-- Capa 20: Contenido de texto principal y llamadas a la acción (CTAs) -->
   <div
     class="relative z-20 flex h-full w-full flex-col items-start justify-center px-16 py-24 pointer-events-none"
   >
+    <!-- Encabezado principal de la marca -->
     <h1 class="text-8xl font-bold text-start">
       DISEÑAMOS <span class="text-accent">SISTEMAS</span>
       <br />DE CRECIMIENTO.
     </h1>
+    <!-- Subtítulo / Propuesta de valor -->
     <p class="text-lg mt-4 w-4/5 text-[#C9C4D8]">
       Transformación digital integral y diseño centrado en el usuario para el
       mercado latinoamericano. Convertimos tecnología en infraestructura crítica
       para el negocio.
     </p>
+
+    <!-- Botones de Acción (habilitan interacción de clics con pointer-events-auto) -->
     <div class="flex py-8 gap-6">
       <Button
         className="rounded-full bg-accent px-6 py-6 text-white pointer-events-auto"
@@ -49,6 +63,8 @@ import UnicornScene from "unicornstudio-react";
       </Button>
     </div>
   </div>
+
+  <!-- Capa 10: Integración de escena 3D alternativa vía Spline Viewer -->
   <div class="w-full h-full relative z-10 pointer-events-none">
     <script
       type="module"
@@ -57,18 +73,5 @@ import UnicornScene from "unicornstudio-react";
     <spline-viewer
       url="https://prod.spline.design/zPe0X-nZizHZWTcu/scene.splinecode"
     ></spline-viewer>
-    {
-      /*Esta parte de la web se puede usar para una animación 
-    https://reactbits.dev/backgrounds/plasma
-    https://reactbits.dev/backgrounds/light-pillar
-    https://reactbits.dev/backgrounds/floating-lines
-
-      https://reactbits.dev/backgrounds/liquid-ether?color1=4200D1&color0=4200D1&color2=E17246&mouseForce=9&resolution=0.25&cursorSize=200&autoIntensity=1.2
-      
-    de fondo
-    https://reactbits.dev/backgrounds/color-bends
-
-    */
-    }
   </div>
 </section>

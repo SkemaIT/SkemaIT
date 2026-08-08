@@ -1,10 +1,20 @@
+---
+/**
+ * TestimonialsSection.astro - Sección de Testimonios y Casos de Éxito
+ * 
+ * Presenta testimonios reales y métricas de impacto usando una grilla asimétrica:
+ * - Izquierda: Tarjeta principal destacada con cita de gran tamaño, insignia de métrica y comillas decorativas.
+ * - Derecha: Pila vertical de testimonios secundarios complementarios.
+ */
+---
+
 <section class="w-full bg-negro text-white px-8 md:px-16 py-28 relative overflow-hidden border-t border-white/5">
-  <!-- Ambient glow background -->
+  <!-- Resplandor ambiental decorativo inferior (Glow Naranja Acento) -->
   <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[130px] pointer-events-none"></div>
 
   <div class="max-w-6xl mx-auto">
     
-    <!-- Heading -->
+    <!-- Encabezado de la sección -->
     <div class="mb-20 max-w-2xl">
       <span class="text-xs font-bold text-accent tracking-widest uppercase">RESULTADOS REALES</span>
       <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mt-4 text-balance">
@@ -12,16 +22,16 @@
       </h2>
     </div>
 
-    <!-- Main Grid layout -->
+    <!-- Grilla asimétrica de testimonios -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <!-- Left Column: Featured Testimonial (Large quote) -->
+      <!-- Columna Izquierda: Testimonio Principal Destacado (Cita grande + Métrica) -->
       <div class="lg:col-span-7 flex flex-col justify-between p-8 rounded-2xl border border-white/10 bg-[#0d0d15] relative overflow-hidden">
-        <!-- Stylized background quote symbol -->
+        <!-- Marca de agua decorativa de comillas gigantes -->
         <div class="absolute -top-10 -right-6 text-[180px] font-serif text-white/[0.03] select-none pointer-events-none leading-none">“</div>
         
         <div>
-          <!-- Highlight badge -->
+          <!-- Insignia de métrica destacada -->
           <span class="text-xs font-bold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full w-fit inline-block">
             +180% Incremento en Conversión
           </span>
@@ -30,6 +40,7 @@
           </blockquote>
         </div>
 
+        <!-- Información del Cliente Principal -->
         <div class="flex items-center gap-4 mt-8">
           <div class="w-12 h-12 rounded-full bg-primary/20 border border-white/10 flex items-center justify-center font-bold text-white">
             MA
@@ -41,10 +52,10 @@
         </div>
       </div>
 
-      <!-- Right Column: Secondary Testimonials Stack -->
+      <!-- Columna Derecha: Pila de Testimonios Secundarios -->
       <div class="lg:col-span-5 flex flex-col justify-between gap-6">
         
-        <!-- Testimonial 2 -->
+        <!-- Testimonio Secundario 1 -->
         <div class="p-6 rounded-2xl border border-white/10 bg-[#0d0d15]/50 flex flex-col justify-between flex-1">
           <blockquote class="text-base text-[#C9C4D8] leading-relaxed">
             “Buscábamos un diseño de marca interactivo en 3D que corriera de forma impecable en móviles. SkemaIT entregó un producto que superó nuestras expectativas y optimizó nuestro SEO drásticamente.”
@@ -60,7 +71,7 @@
           </div>
         </div>
 
-        <!-- Testimonial 3 -->
+        <!-- Testimonio Secundario 2 -->
         <div class="p-6 rounded-2xl border border-white/10 bg-[#0d0d15]/50 flex flex-col justify-between flex-1">
           <blockquote class="text-base text-[#C9C4D8] leading-relaxed">
             “El sistema de captación y automatización que configuraron nos ahorró horas de trabajo administrativo y triplicó el número de leads calificados semanales. Totalmente recomendados.”
