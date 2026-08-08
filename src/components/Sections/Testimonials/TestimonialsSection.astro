@@ -1,6 +1,84 @@
-<section class="w-full h-screen bg-gray-700 text-white">
-  <div class=" w-full h-screen flex items-center justify-center">
-    <h1 class="text-4xl font-bold">Testimonials Section</h1>
-  </div>
+<section class="w-full bg-negro text-white px-8 md:px-16 py-28 relative overflow-hidden border-t border-white/5">
+  <!-- Ambient glow background -->
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-[130px] pointer-events-none"></div>
 
+  <div class="max-w-6xl mx-auto">
+    
+    <!-- Heading -->
+    <div class="mb-20 max-w-2xl">
+      <span class="text-xs font-bold text-accent tracking-widest uppercase">RESULTADOS REALES</span>
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-white mt-4 text-balance">
+        HISTORIAS DE SOCIOS QUE <span class="text-accent">ESCALARON</span> CON NOSOTROS
+      </h2>
+    </div>
+
+    <!-- Main Grid layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      
+      <!-- Left Column: Featured Testimonial (Large quote) -->
+      <div class="lg:col-span-7 flex flex-col justify-between p-8 rounded-2xl border border-white/10 bg-[#0d0d15] relative overflow-hidden">
+        <!-- Stylized background quote symbol -->
+        <div class="absolute -top-10 -right-6 text-[180px] font-serif text-white/[0.03] select-none pointer-events-none leading-none">“</div>
+        
+        <div>
+          <!-- Highlight badge -->
+          <span class="text-xs font-bold text-accent uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full w-fit inline-block">
+            +180% Incremento en Conversión
+          </span>
+          <blockquote class="text-2xl md:text-3xl font-semibold text-white mt-8 leading-snug">
+            “La precisión técnica y el enfoque interactivo de SkemaIT transformaron nuestra plataforma. No solo se ve espectacular, sino que la velocidad de carga y la UX duplicaron nuestras consultas de clientes en cuestión de semanas.”
+          </blockquote>
+        </div>
+
+        <div class="flex items-center gap-4 mt-8">
+          <div class="w-12 h-12 rounded-full bg-primary/20 border border-white/10 flex items-center justify-center font-bold text-white">
+            MA
+          </div>
+          <div>
+            <cite class="not-italic font-bold text-white block">Mateo Alarcón</cite>
+            <span class="text-xs text-[#C9C4D8]">CTO, GrowthVenture</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Secondary Testimonials Stack -->
+      <div class="lg:col-span-5 flex flex-col justify-between gap-6">
+        
+        <!-- Testimonial 2 -->
+        <div class="p-6 rounded-2xl border border-white/10 bg-[#0d0d15]/50 flex flex-col justify-between flex-1">
+          <blockquote class="text-base text-[#C9C4D8] leading-relaxed">
+            “Buscábamos un diseño de marca interactivo en 3D que corriera de forma impecable en móviles. SkemaIT entregó un producto que superó nuestras expectativas y optimizó nuestro SEO drásticamente.”
+          </blockquote>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full bg-accent/20 border border-white/10 flex items-center justify-center font-bold text-white text-sm">
+              SF
+            </div>
+            <div>
+              <cite class="not-italic font-bold text-white text-sm block">Sofía Fuentes</cite>
+              <span class="text-[11px] text-[#C9C4D8]">Co-Fundadora, ApexMedia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="p-6 rounded-2xl border border-white/10 bg-[#0d0d15]/50 flex flex-col justify-between flex-1">
+          <blockquote class="text-base text-[#C9C4D8] leading-relaxed">
+            “El sistema de captación y automatización que configuraron nos ahorró horas de trabajo administrativo y triplicó el número de leads calificados semanales. Totalmente recomendados.”
+          </blockquote>
+          <div class="flex items-center gap-3 mt-6">
+            <div class="w-10 h-10 rounded-full bg-primary/20 border border-white/10 flex items-center justify-center font-bold text-white text-sm">
+              RC
+            </div>
+            <div>
+              <cite class="not-italic font-bold text-white text-sm block">Ricardo Castro</cite>
+              <span class="text-[11px] text-[#C9C4D8]">Director de Operaciones, NexoCorp</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 </section>
