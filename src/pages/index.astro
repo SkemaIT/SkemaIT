@@ -1,26 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import HeroSection from "@/components/Sections/Hero/HeroSection.astro";
+import AboutSection from "@/components/Sections/About/AboutSection.astro";
 ---
 
 <Layout>
-  <div class="relative w-full bg-purple">
-
-    <div class="relative z-10 flex flex-col items-center justify-center h-screen">
-      <h1 class="text-white text-4xl font-bold tracking-wide mb-4">Skemait</h1>
-      <p class="text-white/40 text-sm tracking-widest uppercase">Scroll to explore</p>
-      <div class="mt-8 animate-bounce">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-white/30">
-          <path d="M12 5v14M5 12l7 7 7-7" />
-        </svg>
-      </div>
-    </div>
-
-    <div class="h-screen flex items-center justify-center">
-      <p class="text-white/20 text-lg">More content below</p>
-    </div>
-
-    <div class="h-screen flex items-center justify-center">
-      <p class="text-white/20 text-lg">Even more content</p>
-    </div>
-  </div>
+  <HeroSection />
+  <AboutSection />
 </Layout>
