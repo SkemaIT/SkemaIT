@@ -1,10 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '@/assets/images/LogoPNG/Logo_Principal_Negativo.png';
-import {Button} from '@/components/ui/button.tsx'
+import { Image } from "astro:assets";
+import logo from "@/assets/images/LogoPNG/Logo_Principal_Negativo.png";
+import { Button } from "@/components/ui/button.tsx";
 ---
 
-<header class="sticky top-0 w-full bg-negro/80 backdrop-blur-md border-b border-white/10 h-auto z-50">
+<header class="fixed top-0 w-full bg-transparent h-auto z-50">
   <div class="flex justify-between items-center p-6">
     <div>
       <Image src={logo} alt="Logo" width={150} height={30} />
