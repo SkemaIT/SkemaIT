@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@/assets/images/LogoPNG/Logo_Principal_Negativo.png';
+import {Button} from '@/components/ui/button.tsx'
+---
+
+<header class="sticky top-0 w-full bg-negro/80 backdrop-blur-md border-b border-white/10 h-auto z-50">
+  <div class="flex justify-between items-center p-6">
+    <div>
+      <Image src={logo} alt="Logo" width={150} height={30} />
+    </div>
+    <nav class="flex w-auto justify-center">
+      <ul class="flex *:space-x-4 text-white font-semibold gap-4">
+        <li>INICIO</li>
+        <li>SERVICIOS</li>
+        <li>SOBRE NOSOTROS</li>
+        <li>CONTACTO</li>
+      </ul>
+    </nav>
+    <Button
+      className="rounded-full bg-linear-to-r from-primary via-purple-600 to-accent px-8 py-5 text-white"
+    >
+      COTIZAR PROYECTO
+    </Button>
+  </div>
+</header>

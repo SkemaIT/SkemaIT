@@ -1,0 +1,111 @@
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-BlackItalic.otf') format('opentype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-BoldItalic.otf') format('opentype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-ExtraBoldItalic.otf') format('opentype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-ExtraLightItalic.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-MediumItalic.otf') format('opentype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('/fonts/Nunito_Complete/Fonts/OTF/Nunito-SemiBoldItalic.otf') format('opentype');
+  font-weight: 600;
+  font-style: italic;
+}

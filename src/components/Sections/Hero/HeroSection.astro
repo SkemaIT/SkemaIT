@@ -1,0 +1,74 @@
+---
+import { Button } from "@/components/ui/button.tsx";
+import LiquidEther from "@/components/LiquidEther.tsx";
+import Spline from "@/components/3D/spline.tsx";
+import UnicornScene from "unicornstudio-react";
+---
+
+<section
+  class="relative flex h-screen w-full overflow-hidden bg-negro text-white"
+>
+  <div class="absolute inset-0 z-0">
+    <LiquidEther
+      client:load
+      mouseForce={43}
+      cursorSize={140}
+      isViscous
+      viscous={75}
+      colors={["#4200D1", "#4200D1", "#E17246", "#E17246", "#4200D1"]}
+      autoDemo
+      autoSpeed={0.5}
+      autoIntensity={2.2}
+      isBounce
+      resolution={0.5}
+    />
+  </div>
+
+  <div
+    class="relative z-20 flex h-full w-full flex-col items-start justify-center px-16 py-24 pointer-events-none"
+  >
+    <h1 class="text-8xl font-bold text-start">
+      DISEÑAMOS <span class="text-accent">SISTEMAS</span>
+      <br />DE CRECIMIENTO.
+    </h1>
+    <p class="text-lg mt-4 w-4/5 text-[#C9C4D8]">
+      Transformación digital integral y diseño centrado en el usuario para el
+      mercado latinoamericano. Convertimos tecnología en infraestructura crítica
+      para el negocio.
+    </p>
+    <div class="flex py-8 gap-6">
+      <Button
+        className="rounded-full bg-accent px-6 py-6 text-white pointer-events-auto"
+      >
+        AGENDAR CONSULTORÍA GRATUITA
+      </Button>
+      <Button
+        className="rounded-full bg-info-foreground border border-white px-6 py-6 text-white pointer-events-auto"
+      >
+        HABLAR POR WHATSAPP BUSINESS
+      </Button>
+    </div>
+  </div>
+  <div class="w-full h-full relative z-10 pointer-events-none">
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js"
+    ></script>
+    <spline-viewer
+      url="https://prod.spline.design/zPe0X-nZizHZWTcu/scene.splinecode"
+    ></spline-viewer>
+    {
+      /*Esta parte de la web se puede usar para una animación 
+    https://reactbits.dev/backgrounds/plasma
+    https://reactbits.dev/backgrounds/light-pillar
+    https://reactbits.dev/backgrounds/floating-lines
+
+      https://reactbits.dev/backgrounds/liquid-ether?color1=4200D1&color0=4200D1&color2=E17246&mouseForce=9&resolution=0.25&cursorSize=200&autoIntensity=1.2
+      
+    de fondo
+    https://reactbits.dev/backgrounds/color-bends
+
+    */
+    }
+  </div>
+</section>
