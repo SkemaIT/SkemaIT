@@ -1,29 +1,59 @@
 ---
+/**
+ * Layout.astro - Plantilla Base de la Aplicación (SkemaIT)
+ * 
+ * Este archivo actúa como el layout principal y envolvente (wrapper) de la web.
+ * Define la estructura HTML5 global, la carga de estilos globales, la fuente tipográfica,
+ * el menú de navegación superior (<Navbar />) y el pie de página (<Footer />).
+ * 
+ * Todo contenido colocado dentro de la etiqueta <Layout> en cualquier página (.astro)
+ * se renderizará automáticamente en la posición marcada por la etiqueta <slot />.
+ */
+
+// Importación de estilos CSS globales (Tailwind CSS v4, animaciones y diseño del sistema)
 import "@/styles/global.css";
+// Carga de la fuente tipográfica Nunito desde archivos estáticos locales
 import "/public/fonts/nunito-otf.css";
+
+// Importación de componentes de la interfaz de usuario globales
 import Navbar from "@/components/Common/Navbar/Navbar.astro";
 import Footer from "@/components/Common/Footer/Footer.astro";
 ---
 
-{/* Este archivo contiene el diseño general de la aplicación (skemait.com) */}
-
-<html lang="en">
+<!doctype html>
+<html lang="es">
   <head>
+    <!-- Configuración del juego de caracteres estándar (UTF-8) -->
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <!-- Configuración del Viewport para asegurar un diseño responsivo en dispositivos móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon del sitio web en formato SVG e ICO -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <!-- Generador meta para identificar Astro como el framework utilizado -->
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Estilos específicos de tipografía para el cuerpo del documento -->
     <style>
       body {
         font-family: "Nunito-Regular", sans-serif;
       }
     </style>
-    <title>Skemait</title>
+    
+    <!-- Título principal de la aplicación que se muestra en la pestaña del navegador -->
+    <title>Skemait - Sistemas de Crecimiento & Transformación Digital</title>
   </head>
-  <body>
+
+  <body class="bg-negro text-white min-h-screen flex flex-col antialiased">
+    <!-- Navbar: Menú superior de navegación global (con posición fixed y fondo transparente) -->
     <Navbar client:load />
-    <slot />
+
+    <!-- Slot: Punto de inyección dinámico para las páginas y secciones específicas (e.g. index.astro) -->
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <!-- Footer: Pie de página global que contiene enlaces y créditos -->
     <Footer client:load />
   </body>
 </html>

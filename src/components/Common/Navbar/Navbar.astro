@@ -10,11 +10,39 @@ import { Button } from "@/components/ui/button.tsx";
       <Image src={logo} alt="Logo" width={150} height={30} />
     </div>
     <nav class="flex w-auto justify-center">
-      <ul class="flex *:space-x-4 text-white font-semibold gap-4">
-        <li>INICIO</li>
-        <li>SERVICIOS</li>
-        <li>SOBRE NOSOTROS</li>
-        <li>CONTACTO</li>
+      <ul class="flex text-white font-normal gap-8">
+        <li
+          class="relative py-2 cursor-pointer transition-colors duration-300 hover:text-accent group hover:font-bold"
+        >
+          INICIO
+          <span
+            class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+          ></span>
+        </li>
+        <li
+          class="relative py-2 cursor-pointer transition-colors duration-300 hover:text-accent group hover:font-bold"
+        >
+          SERVICIOS
+          <span
+            class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+          ></span>
+        </li>
+        <li
+          class="relative py-2 cursor-pointer transition-colors duration-300 hover:text-accent group hover:font-bold"
+        >
+          SOBRE NOSOTROS
+          <span
+            class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+          ></span>
+        </li>
+        <li
+          class="relative py-2 cursor-pointer transition-colors duration-300 hover:text-accent group hover:font-bold"
+        >
+          CONTACTO
+          <span
+            class="absolute bottom-0 left-0 w-full h-[2px] bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
+          ></span>
+        </li>
       </ul>
     </nav>
     <Button
