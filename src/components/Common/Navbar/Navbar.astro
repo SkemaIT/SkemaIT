@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button.tsx";
 ---
 
 <header class="fixed top-0 w-full bg-transparent h-auto z-50">
-  <div class="flex justify-between items-center p-6">
+  <div
+    id="navbar-inner"
+    class="relative mx-auto flex justify-between items-center p-6"
+  >
     <div>
       <Image src={logo} alt="Logo" width={150} height={30} />
     </div>
@@ -52,3 +55,29 @@ import { Button } from "@/components/ui/button.tsx";
     </Button>
   </div>
 </header>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const bar = document.getElementById("navbar-inner");
+
+  gsap.to(bar, {
+    top: "1rem",
+    width: "60vw",
+    borderRadius: "9999px",
+    backgroundColor: "rgba(10, 10, 20, 0.55)",
+    backdropFilter: "blur(12px)",
+    boxShadow: "0 8px 32px rgba(0, 0, 0, 0.35)",
+    ease: "power2.out",
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: document.documentElement,
+      start: "top -50",
+      end: "max",
+      toggleActions: "play none none reverse",
+    },
+  });
+</script>
