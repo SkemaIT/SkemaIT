@@ -1,10 +1,10 @@
 ---
 /**
  * index.astro - Página Principal (Homepage / Ruta Raíz "/")
- * 
+ *
  * Esta es la página principal de skemait.com. Encapsula las distintas secciones
  * de la landing page dentro del layout base (<Layout />).
- * 
+ *
  * Secuencia de secciones renderizadas:
  * 1. <HeroSection />: Introducción principal con animación interactiva en canvas/3D y llamados a la acción.
  * 2. <ServicesSection />: Capacidades técnicas y servicios ofrecidos (desarrollo, growth, UX/UI, SEO).
@@ -17,6 +17,7 @@ import HeroSection from "@/components/Sections/Hero/HeroSection.astro";
 import ServicesSection from "@/components/Sections/Services/ServicesSection.astro";
 import TestimonialsSection from "@/components/Sections/Testimonials/TestimonialsSection.astro";
 import AboutSection from "@/components/Sections/About/AboutSection.astro";
+import ContactSection from "@/components/Sections/Contact/ContactSection.astro";
 ---
 
 <Layout>
@@ -31,4 +32,7 @@ import AboutSection from "@/components/Sections/About/AboutSection.astro";
 
   <!-- 4. Sección Sobre Nosotros y Filosofía -->
   <AboutSection />
+
+  <!-- 5. Sección de Contacto -->
+  <ContactSection />
 </Layout>
