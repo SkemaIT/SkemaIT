@@ -8,7 +8,7 @@ import vue from '@astrojs/vue';
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), vue()],
-  output: 'server', // Vercel on-demand: habilita /api/contact (prerender=false); páginas estáticas siguen con prerender por defecto
+  output: 'static', // Vercel: páginas estáticas (index) + API on-demand (prerender=false en contact.ts)
   adapter: vercel(),
   vite: {
     plugins: [tailwindcss()]
