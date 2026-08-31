@@ -33,6 +33,33 @@ const sheetName = import.meta.env.GOOGLE_SHEET_NAME;
 const FROM = "SkemaIT <servicios@skemait.com>";
 const TO_INTERNAL = "servicios@skemait.com";
 
+/**
+ * GET /api/contact — health check (no expone secretos)
+ * Útil para verificar en Vercel si env están presentes sin hacer POST
+ */
+export const GET: APIRoute = async () => {
+  const envStatus = {
+    RESEND_API_KEY: !!import.meta.env.RESEND_API_KEY,
+    GOOGLE_SHEET_ID: !!import.meta.env.GOOGLE_SHEET_ID,
+    GOOGLE_SHEET_NAME: !!import.meta.env.GOOGLE_SHEET_NAME,
+    GOOGLE_SERVICE_ACCOUNT_JSON: !!import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON,
+  };
+  const allOk = Object.values(envStatus).every(Boolean);
+  return new Response(
+    JSON.stringify({
+      status: allOk ? "ok" : "missing_env",
+      env: envStatus,
+      hint: allOk
+        ? "Env OK — prueba POST con payload válido"
+        : "Faltan env en Vercel → Project Settings → Environment Variables (Production) + Redeploy",
+    }),
+    {
+      status: allOk ? 200 : 500,
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+};
+
 // ── Helpers ──
 
 /** Extrae IP del request (Vercel/Cloudflare) */
@@ -160,16 +187,23 @@ export const POST: APIRoute = async ({ request }) => {
   }
   devLog("[API] Rate-limit OK");
 
-  // ── Verificación env ──
-  if (!import.meta.env.RESEND_API_KEY) {
-    console.error("[API] RESEND_API_KEY no configurada");
+  // ── Verificación env (loggea siempre para Vercel, sin exponer valores) ──
+  const envCheck = {
+    RESEND_API_KEY: !!import.meta.env.RESEND_API_KEY,
+    GOOGLE_SHEET_ID: !!import.meta.env.GOOGLE_SHEET_ID,
+    GOOGLE_SHEET_NAME: !!import.meta.env.GOOGLE_SHEET_NAME,
+    GOOGLE_SERVICE_ACCOUNT_JSON: !!import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON,
+  };
+  console.log("[API] Env check:", envCheck, "sheet:", sheetName);
+  if (!envCheck.RESEND_API_KEY) {
+    console.error("[API] RESEND_API_KEY no configurada — revisa Vercel Env (Production)");
     return new Response(
       JSON.stringify({ error: "No se pudo enviar el mensaje, intenta de nuevo" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
-  if (!import.meta.env.GOOGLE_SHEET_ID || !import.meta.env.GOOGLE_SHEET_NAME || !import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON) {
-    console.error("[API] Faltan variables de Google Sheets");
+  if (!envCheck.GOOGLE_SHEET_ID || !envCheck.GOOGLE_SHEET_NAME || !envCheck.GOOGLE_SERVICE_ACCOUNT_JSON) {
+    console.error("[API] Faltan variables de Google Sheets:", envCheck);
     return new Response(
       JSON.stringify({ error: "No se pudo enviar el mensaje, intenta de nuevo" }),
       { status: 500, headers: { "Content-Type": "application/json" } }
@@ -229,10 +263,20 @@ export const POST: APIRoute = async ({ request }) => {
 
     let credentials: { client_email?: string };
     try {
-      credentials = JSON.parse(import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON);
-      devLog("[API][SHEETS] Credenciales OK —", credentials.client_email);
+      // Vercel a veces guarda JSON con saltos escapados o base64 — intenta parse directo
+      const raw = import.meta.env.GOOGLE_SERVICE_ACCOUNT_JSON.trim();
+      // Si viene con \n literales, JSON.parse lo maneja; si viene base64, decodifica
+      let jsonStr = raw;
+      if (!raw.startsWith("{")) {
+        try {
+          jsonStr = Buffer.from(raw, "base64").toString("utf-8");
+        } catch {}
+      }
+      credentials = JSON.parse(jsonStr);
+      console.log("[API][SHEETS] Credenciales OK —", credentials.client_email);
     } catch (parseErr) {
       console.error("[API][SHEETS] Credenciales mal formadas:", parseErr);
+      console.error("[API][SHEETS] Hint: pega JSON en Vercel sin comillas extra, con \\n escapados");
       throw new Error("No se pudo enviar el mensaje, intenta de nuevo");
     }
 
@@ -263,25 +307,26 @@ export const POST: APIRoute = async ({ request }) => {
     });
   } catch (err: unknown) {
     const messageErr = err instanceof Error ? err.message : String(err);
+    // Log siempre en producción (Vercel) para debug
+    console.error("[API] ERROR en flujo:", messageErr);
+    const e = err as { code?: unknown; response?: { data?: unknown }; error?: unknown };
+    if (e.code) console.error("[API] Código:", e.code);
+    if (e.error) console.error("[API] Error obj:", e.error);
+    if (e.response?.data) console.error("[API] Respuesta Google/Resend:", e.response.data);
+
     // Determinar paso fallido por mensaje
     const isSheetsErr = messageErr.includes("Google") || messageErr.includes("Credentials") || messageErr.includes("sheet");
     const isMailErr = messageErr.toLowerCase().includes("correo") || messageErr.toLowerCase().includes("resend") || messageErr.toLowerCase().includes("mail");
 
-    // Si Sheets falló tras mails OK → partial success (mails ya enviados, no hay rollback)
     if (isSheetsErr) {
       console.error("[API][SHEETS] ERROR — mails ya enviados, Sheets falló:", err);
       console.error("[API] PARTIAL_SUCCESS: 2/3 (mails OK, sheets FAIL) — requiere revisión manual");
     } else if (isMailErr) {
       console.error("[API] ERROR en envío de correos — Sheets NO ejecutado:", err);
-    } else {
-      console.error("[API] ERROR completo:", err);
     }
 
     if (IS_DEV) {
-      console.error("[API] Mensaje:", messageErr);
-      const e = err as { code?: unknown; response?: { data?: unknown } };
-      if (e.code) console.error("[API] Código:", e.code);
-      if (e.response?.data) console.error("[API] Respuesta Google:", e.response.data);
+      console.error("[API][DEV] Detalle:", err);
     }
 
     // Mensaje genérico al usuario (no filtrar detalle interno)
