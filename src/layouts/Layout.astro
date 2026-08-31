@@ -45,15 +45,15 @@ import Footer from "@/components/Common/Footer/Footer.astro";
   </head>
 
   <body class="bg-negro text-white min-h-screen flex flex-col antialiased">
-    <!-- Navbar: Menú superior de navegación global (con posición fixed y fondo transparente) -->
-    <Navbar client:load />
+    <!-- Navbar: Astro component con <script> interno (gsap) — no necesita hydration -->
+    <Navbar />
 
     <!-- Slot: Punto de inyección dinámico para las páginas y secciones específicas (e.g. index.astro) -->
     <main class="flex-grow">
       <slot />
     </main>
 
-    <!-- Footer: Pie de página global que contiene enlaces y créditos -->
-    <Footer client:load />
+    <!-- Footer: Astro component (usa Watermark con client:load interno) — no hidratar el wrapper -->
+    <Footer />
   </body>
 </html>
