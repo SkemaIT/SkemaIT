@@ -101,6 +101,11 @@ skemait/
 
 ---
 
+## 🔐 Seguridad — Variables de entorno (`.env`)
+
+> ⚠️ **NUNCA publiques `.env`** — contiene `RESEND_API_KEY` y `GOOGLE_SERVICE_ACCOUNT_JSON`.
+> Si lo necesitas, **pídemelo a mí (@jgelv)** por canal privado. Ver guía completa en [`docs/ENV_SECURITY.md`](docs/ENV_SECURITY.md) y plantilla `.env.example`.
+
 ## 🤝 Guía de Contribución y Reglas del Repositorio
 
 > ⚠️ **RESTRICCIÓN IMPORTANTE DE SEGURIDAD Y CALIDAD:**  

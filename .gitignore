@@ -3,6 +3,7 @@ dist/
 
 # generated types
 .astro/
+.vercel/
 
 # dependencies
 node_modules/
@@ -13,9 +14,15 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# environment variables
+# environment variables — NUNCA subir .env (ver docs/ENV_SECURITY.md)
 .env
 .env.production
+.env*.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+!.env.example
 
 # macOS-specific files
 .DS_Store
