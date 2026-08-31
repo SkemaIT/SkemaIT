@@ -46,7 +46,7 @@ import Footer from "@/components/Common/Footer/Footer.astro";
 
   <body class="bg-negro text-white min-h-screen flex flex-col antialiased">
     <!-- Navbar: Menú superior de navegación global (con posición fixed y fondo transparente) -->
-    <Navbar client:load />
+    <Navbar />
 
     <!-- Slot: Punto de inyección dinámico para las páginas y secciones específicas (e.g. index.astro) -->
     <main class="flex-grow">
@@ -54,6 +54,6 @@ import Footer from "@/components/Common/Footer/Footer.astro";
     </main>
 
     <!-- Footer: Pie de página global que contiene enlaces y créditos -->
-    <Footer client:load />
+    <Footer />
   </body>
 </html>
