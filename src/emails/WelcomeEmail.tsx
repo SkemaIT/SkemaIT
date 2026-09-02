@@ -32,7 +32,7 @@ interface WelcomeEmailProps {
 }
 
 const WHATSAPP_LINK =
-  "https://wa.me/5491123456789?text=Hola%20SkemaIT%2C%20quiero%20impulsar%20mi%20proyecto";
+  "https://wa.me/573003397741?text=Hola%20SkemaIT%2C%20quiero%20impulsar%20mi%20proyecto";
 
 export default function WelcomeEmail({ name, apellido }: WelcomeEmailProps) {
   const displayName = `${name} ${apellido}`.trim() || name || "ahí";
@@ -495,7 +495,7 @@ export default function WelcomeEmail({ name, apellido }: WelcomeEmailProps) {
                 </Link>
                 <span style={{ color: "#3A3944", margin: "0 10px" }}>•</span>
                 <Link
-                  href={`https://wa.me/5491123456789`}
+                  href={`https://wa.me/573003397741`}
                   style={{ color: "#9A98A8", textDecoration: "none" }}
                 >
                   WhatsApp
