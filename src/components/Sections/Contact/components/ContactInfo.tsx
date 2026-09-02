@@ -21,8 +21,8 @@ const SOCIAL_LINKS = [
   { name: "X (Twitter)", url: "https://x.com", Icon: X },
 ];
 
-const WHATSAPP_NUMBER = "+54 9 11 2345-6789";
-const WHATSAPP_LINK = "https://wa.me/5491123456789?text=Hola%20SkemaIT%2C%20quiero%20impulsar%20mi%20proyecto";
+const WHATSAPP_NUMBER = "+57 300 3397741";
+const WHATSAPP_LINK = "https://wa.me/573003397741?text=Hola%20SkemaIT%2C%20quiero%20impulsar%20mi%20proyecto";
 
 export default function ContactInfo() {
   return (
